@@ -1,0 +1,18 @@
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+st.set_page_config(
+    page_title="DashCovid",
+    layout="wide")
+
+st.title("DASHCOVID: Um Dashboard sobre os Dados de COVID-19 - 2020")
+
+df = pd.read_csv('/content/WHO_time_series.csv')
+
+fig1 = px.line(df, x = 'Date_reported', y = 'Cumulative_cases',
+               color = 'Country', title = 'Número de Casos Acumulados de Covid-19 por País')
+fig1.update_layout(xaxis_title = 'Data', yaxis_title = 'Número de Casos')
+fig1.show()
+
+st.plotly_chart(fig1, use_container_width=True)
