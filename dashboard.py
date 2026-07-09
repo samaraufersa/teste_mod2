@@ -8,7 +8,7 @@ st.set_page_config(
 
 st.title("DASHCOVID: Um Dashboard sobre os Dados de COVID-19 - 2020")
 
-df = pd.read_csv('/content/WHO_time_series.csv')
+df = pd.read_csv('WHO_time_series.csv')
 
 fig1 = px.line(df, x = 'Date_reported', y = 'Cumulative_cases',
                color = 'Country', title = 'Número de Casos Acumulados de Covid-19 por País')
